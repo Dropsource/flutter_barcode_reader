@@ -22,7 +22,6 @@
   CGContextRef context = UIGraphicsGetCurrentContext();
   
   UIColor * overlayColor = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.55];
-  UIColor *scanLineColor = UIColor.redColor;
   
   CGContextSetFillColorWithColor(context, overlayColor.CGColor);
   CGContextFillRect(context, self.bounds);
@@ -38,7 +37,7 @@
   _line.frame = lineRect;
   
   // drw the green corners
-  CGFloat cornerSize = 30;
+  CGFloat cornerSize = 60;
   UIBezierPath *path = [UIBezierPath bezierPath];
   //top left corner
   [path moveToPoint:CGPointMake(holeRect.origin.x, holeRect.origin.y + cornerSize)];
@@ -62,8 +61,8 @@
   [path addLineToPoint:CGPointMake(holeRect.origin.x, bottomHoleY)];
   [path addLineToPoint:CGPointMake(holeRect.origin.x, bottomHoleY - cornerSize)];
   
-  path.lineWidth = 2;
-  [[UIColor greenColor] setStroke];
+  path.lineWidth = 4;
+  [[UIColor whiteColor] setStroke];
   [path stroke];
   
 }

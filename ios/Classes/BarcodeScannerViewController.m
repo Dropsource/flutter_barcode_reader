@@ -43,7 +43,15 @@
   [_scanRect startAnimating];
     self.scanner = [[MTBBarcodeScanner alloc] initWithPreviewView:_previewView];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancel)];
-  [self updateFlashButton];
+    
+    // CUSTOM
+    NSDictionary<NSAttributedStringKey,id> *attributes = @{
+                                                           NSFontAttributeName: [UIFont fontWithName:@"SourceSansPro-Regular" size:14.0],
+                                                           NSForegroundColorAttributeName: [UIColor whiteColor]
+                                                           };
+    [self.navigationItem.leftBarButtonItem setTitleTextAttributes:attributes forState:UIControlStateNormal];
+    
+    [self updateFlashButton];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -98,6 +106,12 @@
                                                                                   style:UIBarButtonItemStylePlain
                                                                                  target:self action:@selector(toggle)];
     }
+    // CUSTOM
+    NSDictionary<NSAttributedStringKey,id> *attributes = @{
+                                                           NSFontAttributeName: [UIFont fontWithName:@"SourceSansPro-Regular" size:14.0],
+                                                           NSForegroundColorAttributeName: [UIColor whiteColor]
+                                                           };
+    [self.navigationItem.rightBarButtonItem setTitleTextAttributes:attributes forState:UIControlStateNormal];
 }
 
 - (void)toggle {

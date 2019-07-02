@@ -21,6 +21,9 @@
 
 - (void)showBarcodeView {
     BarcodeScannerViewController *scannerViewController = [[BarcodeScannerViewController alloc] init];
+    
+    // CUSTOM
+    [[scannerViewController navigationItem] setTitle:@"QR Code Scanner"];
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:scannerViewController];
     scannerViewController.delegate = self;
     [self.hostViewController presentViewController:navigationController animated:NO completion:nil];
